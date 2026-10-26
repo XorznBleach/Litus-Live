@@ -4,7 +4,7 @@
 
 LITUS is a proposed web-based decision-support tool that helps Boracay stakeholders monitor Sargassum sightings and prepare for possible shoreline accumulation. This repository contains the hackathon demo: a public site where community members can submit field reports, and a staff dashboard where authorised responders review them.
 
-> **Demo only.** All observations are illustrative sample data, not live detections. Reports are not sent to local authorities and do not verify actual Sargassum presence. Always confirm conditions in the field before making operational decisions.
+> **Demo only.** All observations are illustrative sample data, not live detections. Reports are not sent to local authorities and do not verify actual Sargassum presence. Always confirm conditions in the field before making operational decisions, The features are subject to change.
 
 Built by Team **Bitcrushers** for CS Bootcamp 2026.
 
