@@ -54,14 +54,6 @@ python -m http.server 8000
 
 Opening files directly (`file://`) works in Chrome, but Firefox and Safari may not share `localStorage` between the two pages. Use a local server if reports don't appear in the dashboard.
 
-## Deploy to Vercel
-
-1. Push this repository to GitHub.
-2. In Vercel, choose **Add New → Project** and import the repo.
-3. Framework preset: **Other**. No build command. Output directory: the project root.
-
-`vercel.json` enables clean URLs, so the dashboard is served at `/dashboard`.
-
 ## Project structure
 
 ```
@@ -72,7 +64,7 @@ Opening files directly (`file://`) works in Chrome, but Firefox and Safari may n
 └── README.md
 ```
 
-## Limitations
+## Limitations (DEMO LIMITATIONS)
 
 - **Per-browser storage.** Reports live in each visitor's own browser, so a report submitted on one device will not appear on another device's dashboard.
 - **No real authentication** (see Staff access).
