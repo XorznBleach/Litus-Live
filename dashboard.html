@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102b3a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="LITUS" />
+  <title>LITUS — Boracay Coastal Monitoring</title>
+  <script>
+    try { document.documentElement.dataset.auth = sessionStorage.getItem("litus-staff-session") ? "ok" : "locked"; } catch (_) { document.documentElement.dataset.auth = "locked"; }
+  </script>
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('litus-theme-v1') || 'light'; }
+    catch (_) { document.documentElement.dataset.theme = 'light'; }
+  </script>
+  <style>
+:root{--navy:#102b3a;--navy-2:#183c4e;--ink:#183240;--muted:#718490;--muted-2:#95a4ad;--line:#e5ecef;--surface:#fff;--canvas:#f5f8f9;--teal:#1e9aa3;--teal-dark:#167983;--teal-pale:#e4f6f4;--blue:#4c91be;--blue-pale:#eaf4fb;--amber:#dda33d;--amber-pale:#fff4db;--coral:#d96c63;--coral-pale:#fff0ee;--green:#299d79;--green-pale:#e6f7ef;--shadow:0 10px 28px rgba(17,47,63,.045);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(30,154,163,.25);outline-offset:2px}a{color:inherit;text-decoration:none}.app-shell{min-height:100vh}.sidebar{width:246px;background:var(--navy);color:#e8f3f7;position:fixed;inset:0 auto 0 0;z-index:40;display:flex;flex-direction:column;padding:25px 15px 16px}.brand{display:flex;align-items:center;gap:12px;padding:0 11px 33px}.brand-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#3cc1bf,#1d858e);color:white;box-shadow:0 6px 16px #041a2a44}.brand-mark svg{width:23px;height:23px;stroke-width:2.3}.brand-copy{display:flex;flex-direction:column;gap:3px}.brand-copy strong{font:800 22px/1 'Manrope',sans-serif;letter-spacing:2.2px;color:#fff}.brand-copy small{font-size:8px;color:#91b1bd;letter-spacing:1.6px;font-weight:700}.workspace-label{font-size:10px;letter-spacing:1.7px;color:#70929f;font-weight:700;padding:0 13px 12px}.primary-nav{display:flex;flex-direction:column;gap:5px}.nav-link{border:0;width:100%;display:flex;align-items:center;gap:12px;color:#9ab3bd;text-align:left;background:transparent;border-radius:10px;padding:12px 13px;transition:background .18s,color .18s;font-size:13px;font-weight:500}.nav-link svg{width:18px;height:18px;stroke-width:1.8;flex-shrink:0}.nav-link:hover{color:#fff;background:#ffffff0d}.nav-link.active{color:#fff;background:linear-gradient(90deg,#1e6874,#215263);box-shadow:inset 3px 0 #57d7ce}.nav-link.active svg{color:#77e2d9}.nav-count{margin-left:auto;background:#ffffff1a;border-radius:6px;padding:3px 7px;font-size:10px;color:#d5e8ee}.sidebar-bottom{margin-top:auto}.sidebar-note{border:1px solid #ffffff17;background:#ffffff08;border-radius:12px;padding:13px 12px;display:flex;gap:10px;margin:0 4px 18px}.note-icon{width:28px;height:28px;border-radius:8px;background:#225463;color:#7de1d7;display:grid;place-items:center;flex-shrink:0}.note-icon svg{width:15px;height:15px}.sidebar-note strong{font-size:11px;color:#dfeef2}.sidebar-note p{font-size:10px;line-height:1.55;color:#88a5af;margin:5px 0 0}.sidebar-bottom>.nav-link{margin-bottom:13px}.user-profile{border-top:1px solid #ffffff17;padding:17px 7px 0;display:flex;align-items:center;gap:10px}.avatar,.top-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#deeee9;color:#1b6768;font-size:11px;font-weight:800}.user-copy{display:flex;flex-direction:column;gap:3px;flex:1}.user-copy strong{font-size:12px;color:#e5f1f4}.user-copy small{font-size:10px;color:#7da0ad}.icon-button{width:36px;height:36px;border:1px solid var(--line);background:#fff;color:#607683;border-radius:10px;display:grid;place-items:center;transition:all .18s;flex-shrink:0}.icon-button svg{width:17px;height:17px;stroke-width:1.8}.icon-button:hover{border-color:#b9d8d8;color:var(--teal-dark);background:#f5fbfb}.icon-button.subtle{width:28px;height:28px;border:0;background:transparent;color:#7394a0}.main-content{margin-left:246px;min-width:0}.topbar{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 38px;position:sticky;top:0;z-index:25}.breadcrumb{display:flex;align-items:center;gap:10px;color:#95a4ad;font-size:12px}.breadcrumb svg{width:14px;height:14px}.breadcrumb strong{font-size:12px;color:#314b58;font-weight:600}.topbar-actions{display:flex;align-items:center;gap:17px}.demo-pill{display:inline-flex;align-items:center;gap:8px;background:#fff6e5;color:#a8731e;border:1px solid #f6e7c2;border-radius:20px;padding:7px 10px;font-weight:800;font-size:9px;letter-spacing:1px}.pulse-dot,.live-indicator{width:7px;height:7px;background:#e2a736;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px #e2a73620}.top-avatar{background:#e3f2f0;width:32px;height:32px;border-radius:50%;font-size:10px}.mobile-menu{display:none}.page-wrap{max-width:1600px;margin:auto;padding:32px 38px 22px}.page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;margin-bottom:26px}.eyebrow,.panel-kicker{display:flex;align-items:center;gap:8px;color:#66838f;font-weight:800;font-size:9px;letter-spacing:1.4px}.eyebrow{margin-bottom:10px;color:#268b91}.eyebrow-line{width:19px;height:2px;background:#28aaa8;border-radius:2px}h1,h2,h3,p{margin-top:0}.page-heading h1{font-family:'Manrope',sans-serif;font-size:clamp(26px,2.3vw,34px);letter-spacing:-1.3px;line-height:1.2;margin:0 0 8px;font-weight:800;color:#173543}.heading-period{color:var(--teal)}.page-heading p{font-size:12px;color:#7a8e98;margin:0;line-height:1.6}.heading-actions{display:flex;gap:10px;flex-shrink:0}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:10px;padding:11px 15px;font-size:11px;font-weight:700;white-space:nowrap;transition:transform .15s,box-shadow .15s,background .15s}.button svg{width:15px;height:15px;stroke-width:2}.button:active{transform:translateY(1px)}.button-primary{background:var(--teal);color:#fff;box-shadow:0 5px 12px #16889120}.button-primary:hover{background:var(--teal-dark);box-shadow:0 7px 16px #16889130}.button-secondary{background:#fff;color:#3b5664;border-color:#dce6e9}.button-secondary:hover{background:#f8fbfc;border-color:#c4d8de}.button-soft{background:#eef8f7;color:#177b7d;border-color:#def0ee}.button-soft:hover{background:#e1f3f1}.button-full{width:100%;justify-content:space-between;margin-top:12px}.button-full svg{width:14px}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}.metric-card{min-width:0;padding:18px 18px 15px;background:#fff;border:1px solid #e8eff1;border-radius:14px;box-shadow:var(--shadow)}.metric-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.metric-label{color:#718590;font-size:11px;font-weight:600}.metric-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center}.metric-icon svg{width:17px;height:17px}.icon-blue{background:var(--blue-pale);color:var(--blue)}.icon-amber{background:var(--amber-pale);color:#bd8724}.icon-coral{background:var(--coral-pale);color:var(--coral)}.icon-dark{background:#244656;color:#78d9d1}.metric-value{font:800 28px/1.2 'Manrope',sans-serif;color:#183746;letter-spacing:-.7px;margin:12px 0 11px}.metric-date{display:flex;align-items:baseline;gap:7px}.metric-date span{font-size:11px;letter-spacing:1px;color:#83c9c7}.metric-foot{display:flex;align-items:center;gap:7px;color:#91a0a7;font-size:9px;white-space:nowrap}.mini-tag{font-size:9px;font-weight:700;border-radius:5px;padding:4px 6px}.tag-neutral{background:#f0f5f7;color:#6b828f}.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex-shrink:0}.dot-amber{background:var(--amber)}.dot-coral{background:var(--coral)}.dot-green{background:var(--green)}.dot-teal{background:#32a9a4}.metric-card-dark{background:linear-gradient(140deg,#143749,#1b4755);border-color:#214a59}.metric-card-dark .metric-label{color:#b3cbd2}.metric-card-dark .metric-value{color:#fff}.metric-card-dark .metric-foot{color:#8eafb7}.main-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(290px,.82fr);gap:18px;align-items:stretch}.panel{background:#fff;border:1px solid #e6edef;border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}.map-panel{overflow:hidden}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 21px 16px}.panel-heading h2{font:800 17px/1.35 'Manrope',sans-serif;letter-spacing:-.45px;color:#1b3a48;margin:7px 0 4px}.panel-heading p{font-size:10px;line-height:1.5;color:#83939b;margin:0}.panel-kicker{font-size:8px;letter-spacing:1.4px}.live-indicator{background:#2fae91;box-shadow:0 0 0 3px #2fae9120;width:6px;height:6px}.map-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 20px 12px;padding:10px 11px;background:#f7fafb;border:1px solid #edf2f3;border-radius:10px}.map-location{display:flex;align-items:center;gap:7px;font-size:10px;color:#48616c;white-space:nowrap}.map-location svg{width:14px;height:14px;color:#5a8d96}.map-location svg:last-child{width:12px;height:12px;color:#9aaab0}.map-filters{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}.filter-chip{display:inline-flex;align-items:center;gap:5px;border:1px solid #e5ecef;background:#fff;border-radius:6px;padding:5px 7px;color:#667b85;font-size:9px;cursor:pointer;user-select:none}.filter-chip input{appearance:none;width:10px;height:10px;border:1px solid #bdcbd0;border-radius:3px;margin:0;display:grid;place-items:center}.filter-chip input:checked{background:var(--teal);border-color:var(--teal)}.filter-chip input:checked:after{content:'✓';color:white;font-size:8px;line-height:9px}.filter-dot{width:6px;height:6px;border-radius:50%}.map-wrap{position:relative;margin:0 12px;overflow:hidden;border-radius:12px;background:#e5f0ee;height:355px;isolation:isolate}.map-wrap #map{height:100%;width:100%;z-index:1;background:#e1efed}.leaflet-container{font-family:'DM Sans',sans-serif!important}.leaflet-control-attribution{font-size:8px!important;opacity:.85}.leaflet-control-zoom a{color:#294755!important;border-color:#e0e9eb!important}.leaflet-popup-content-wrapper{border-radius:11px!important;box-shadow:0 8px 28px #102b3a20!important}.leaflet-popup-content{font-family:'DM Sans',sans-serif;font-size:11px;line-height:1.5;margin:12px 15px!important}.leaflet-popup-content strong{font-size:12px;color:#193d4b}.leaflet-popup-content .popup-status{display:inline-block;padding:3px 6px;margin-top:5px;border-radius:5px;font-size:9px;font-weight:700}.custom-marker{background:transparent;border:0}.marker-shell{width:24px;height:24px;border-radius:50%;border:3px solid white;display:grid;place-items:center;box-shadow:0 3px 9px #102b3a30;position:relative}.marker-shell:after{content:'';position:absolute;inset:-6px;border:1px solid currentColor;opacity:.25;border-radius:50%}.marker-shell span{width:6px;height:6px;border-radius:50%;background:white}.marker-possible{background:#e0a12f;color:#e0a12f}.marker-accumulation{background:#d96c63;color:#d96c63}.marker-clear{background:#2d9b79;color:#2d9b79}.map-legend{position:absolute;left:13px;bottom:14px;z-index:500;background:#ffffffef;backdrop-filter:blur(10px);border:1px solid #e6eeee;border-radius:9px;padding:10px 12px;box-shadow:0 5px 15px #133b4d10}.legend-title{font-size:8px;letter-spacing:1.1px;color:#637d87;font-weight:800;margin-bottom:8px}.map-legend>div:not(.legend-title){display:flex;align-items:center;gap:7px;color:#687f89;font-size:9px;margin-top:6px}.legend-dot{width:7px;height:7px;border-radius:50%}.legend-green{background:var(--green)}.legend-amber{background:var(--amber)}.legend-coral{background:var(--coral)}.map-scale-note{position:absolute;right:12px;bottom:12px;z-index:500;display:flex;align-items:center;gap:5px;background:#ffffffeb;border:1px solid #e7eeee;color:#778a91;font-size:8px;border-radius:7px;padding:7px 8px;backdrop-filter:blur(8px)}.map-scale-note svg{width:12px;height:12px}.map-fallback{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:linear-gradient(145deg,#e9f4f0,#d9ebea);padding:20px}.map-fallback.show{display:flex}.fallback-icon{width:45px;height:45px;border-radius:14px;background:#fff;color:var(--teal);display:grid;place-items:center;margin-bottom:12px;box-shadow:0 8px 20px #0d455011}.fallback-icon svg{width:22px;height:22px}.map-fallback strong{font-size:13px;color:#244a56}.map-fallback p{max-width:300px;color:#66818a;font-size:10px;line-height:1.6;margin:7px auto 0}.map-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 21px 15px}.map-footer>div{display:flex;align-items:center;gap:9px}.foot-icon{width:29px;height:29px;background:#edf7f7;color:#2b9193;border-radius:8px;display:grid;place-items:center}.foot-icon svg{width:15px;height:15px}.map-footer strong,.map-footer small{display:block}.map-footer strong{font-size:10px;color:#3c5a65;margin-bottom:3px}.map-footer small{font-size:9px;color:#96a5ab}.text-button{display:inline-flex;align-items:center;gap:6px;color:#16878b;background:transparent;border:0;font-size:10px;font-weight:700;padding:6px 0;white-space:nowrap}.text-button:hover{color:#0e5f65}.text-button svg{width:13px;height:13px}.right-column{display:flex;flex-direction:column;gap:18px;min-width:0}.priority-panel{padding:0 17px 15px}.compact-heading{padding:18px 0 8px}.compact-heading h2{margin-top:7px;font-size:16px}.priority-count{width:31px;height:31px;border-radius:9px;background:#fff0ea;color:#d86d51;font:800 12px 'Manrope',sans-serif;display:grid;place-items:center}.panel-description{font-size:10px;color:#84949c;line-height:1.5;margin:0 0 11px}.priority-list{display:flex;flex-direction:column}.priority-item{border-top:1px solid #eff3f4;padding:11px 0;display:flex;align-items:center;gap:10px;cursor:pointer}.priority-item:first-child{border-top:0}.priority-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#fff0ed;color:#d36d60;flex-shrink:0}.priority-icon svg{width:16px;height:16px}.priority-copy{flex:1;min-width:0}.priority-copy strong{display:block;font-size:10px;color:#34515e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.priority-copy small{display:block;font-size:9px;color:#94a2a8;margin-top:4px}.priority-item>svg{width:14px;height:14px;color:#a2b2b7}.priority-item:hover .priority-copy strong{color:#15858a}.selected-panel{padding:15px 17px 13px;background:linear-gradient(145deg,#fff 65%,#f4fbfa);border-color:#dceced}.selected-topline{display:flex;align-items:center;justify-content:space-between}.selected-label{display:flex;align-items:center;gap:7px;color:#6f8790;font-size:8px;font-weight:800;letter-spacing:1.1px}.tiny{width:25px;height:25px;border-radius:7px;border:0;background:transparent}.tiny svg{width:14px;height:14px}.selected-panel h3{font:800 14px/1.35 'Manrope',sans-serif;color:#1c3f4d;letter-spacing:-.2px;margin:8px 0 9px}.selected-meta{display:flex;flex-wrap:wrap;gap:9px 12px;color:#83949b;font-size:9px}.selected-meta span{display:inline-flex;align-items:center;gap:4px}.selected-meta svg{width:12px;height:12px;color:#8fa8ad}.selected-status-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}.risk-badge{display:inline-flex;align-items:center;border-radius:6px;padding:5px 7px;font-size:9px;font-weight:700}.risk-possible{background:var(--amber-pale);color:#a5741e}.risk-accumulation{background:var(--coral-pale);color:#b6574e}.risk-clear{background:var(--green-pale);color:#237d61}.confidence-note{font-size:9px;color:#9aa7ac}.selected-description{font-size:10px;line-height:1.6;color:#7a8e96;margin:11px 0 5px}.selected-detail-button{font-size:9px}.reports-panel{margin-top:19px;overflow:hidden}.reports-heading{align-items:flex-end;padding:19px 21px 16px}.reports-heading h2{font-size:17px}.report-tools{display:flex;align-items:center;gap:8px}.search-box{display:flex;align-items:center;gap:7px;width:178px;border:1px solid #e0e8eb;border-radius:8px;padding:9px 10px;background:#fff;color:#8ca0a6}.search-box svg{width:14px;height:14px;flex-shrink:0}.search-box input{border:0;outline:0;min-width:0;width:100%;font-size:10px;color:#3d5965;background:transparent}.search-box input::placeholder{color:#9babb0}.report-tools select{padding:9px 25px 9px 10px;border:1px solid #e0e8eb;border-radius:8px;background:#fff;color:#536b75;font-size:10px;max-width:156px;outline:0}.table-scroll{overflow-x:auto}.reports-table{width:100%;border-collapse:collapse;white-space:nowrap}.reports-table thead{background:#f8fafb}.reports-table th{padding:11px 16px;text-align:left;color:#8b9ba2;font-size:8px;letter-spacing:1px;font-weight:800;border-top:1px solid #f0f4f5;border-bottom:1px solid #edf2f3}.reports-table th:first-child,.reports-table td:first-child{padding-left:21px}.reports-table td{padding:12px 16px;border-bottom:1px solid #f0f4f5;font-size:10px;color:#6e848e}.reports-table tbody tr{transition:background .15s;cursor:pointer}.reports-table tbody tr:hover{background:#f8fbfb}.reports-table tbody tr:last-child td{border-bottom:0}.location-cell{display:flex;align-items:center;gap:9px;min-width:170px}.mini-location-icon{width:29px;height:29px;border-radius:8px;background:#eff7f7;color:#358c91;display:grid;place-items:center;flex-shrink:0}.mini-location-icon svg{width:14px;height:14px}.location-cell strong{display:block;color:#2c4c5a;font-size:10px;font-weight:700}.location-cell small{display:block;color:#9aa9ae;font-size:8px;margin-top:3px}.source-label{display:inline-flex;align-items:center;gap:6px}.source-icon{width:21px;height:21px;border-radius:6px;background:#edf5fb;color:#598bb3;display:grid;place-items:center}.source-icon.community{background:#f4f1ff;color:#8775bc}.source-icon svg{width:12px;height:12px}.status-cell{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:5px 7px;font-size:9px;font-weight:700}.status-cell.possible{background:var(--amber-pale);color:#a77927}.status-cell.accumulation{background:var(--coral-pale);color:#b85b52}.status-cell.clear{background:var(--green-pale);color:#287e61}.row-action{width:25px;height:25px;border:0;border-radius:7px;background:transparent;color:#8ca0a7;display:grid;place-items:center}.row-action svg{width:14px;height:14px}.row-action:hover{background:#eaf7f6;color:#16868b}.empty-table{text-align:center;padding:35px 10px!important;color:#9aa9ae!important}.table-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #edf2f3;padding:12px 21px;color:#95a4aa;font-size:9px}.table-footer>span:last-child{display:flex;align-items:center;gap:7px}.page-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 3px 4px;color:#96a5ab;font-size:9px}.page-footer>span:first-child{display:flex;align-items:center;gap:7px;font-weight:800;letter-spacing:.7px;color:#66818a}.footer-wave{color:#29979b;display:inline-flex}.footer-wave svg{width:15px;height:15px}.footer-separator{color:#cfdbde;margin:0 3px}.modal-backdrop{position:fixed;inset:0;z-index:100;background:rgba(10,34,46,.56);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px;overflow-y:auto}.modal-backdrop.open{display:flex}.modal-card{width:min(100%,570px);max-height:calc(100vh - 40px);overflow-y:auto;background:#fff;border-radius:18px;box-shadow:0 24px 70px #071a2590;padding:24px}.modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px}.modal-header h2{font:800 21px/1.3 'Manrope',sans-serif;color:#1b3a48;margin:8px 0 6px;letter-spacing:-.6px}.modal-header p{font-size:11px;line-height:1.5;color:#83949b;margin:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-field{display:flex;flex-direction:column;gap:7px;min-width:0}.form-field>span{font-size:10px;color:#405d68;font-weight:700}.form-field b{color:#d66e61}.form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid #dfe8eb;border-radius:9px;padding:11px 11px;color:#405d68;background:#fcfdfd;font-size:11px;min-width:0;outline:0}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:#80c3c3;box-shadow:0 0 0 3px #1e9aa316}.form-field textarea{resize:vertical;min-height:78px;line-height:1.5}.form-field small{font-size:9px;color:#9aa7ac}.span-2{grid-column:span 2}.form-disclaimer{display:flex;gap:9px;background:#fff8e9;color:#8a7449;border-radius:9px;padding:11px 12px;margin-top:18px;font-size:9px;line-height:1.6}.form-disclaimer svg{width:16px;height:16px;flex-shrink:0;color:#ba913b}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:22px}.info-modal{width:min(100%,600px)}.info-modal .modal-header{margin-bottom:15px}.info-section{display:flex;gap:12px;padding:15px 0;border-top:1px solid #edf2f3}.info-icon{width:34px;height:34px;flex-shrink:0;border-radius:10px;background:#eaf6f5;color:#268f92;display:grid;place-items:center}.info-icon svg{width:17px;height:17px}.info-section h3{font-size:12px;color:#34515e;margin:1px 0 5px}.info-section p{font-size:10px;line-height:1.65;color:#788e97;margin:0}.toast{position:fixed;right:24px;bottom:24px;z-index:150;display:flex;align-items:center;gap:10px;padding:12px 15px;background:#153d4b;color:white;border:1px solid #37616b;border-radius:11px;box-shadow:0 12px 35px #0d2a3a40;font-size:11px;font-weight:600;opacity:0;transform:translateY(12px);pointer-events:none;transition:all .25s}.toast.show{opacity:1;transform:translateY(0)}.toast-icon{width:22px;height:22px;border-radius:7px;background:#2aa397;display:grid;place-items:center}.toast-icon svg{width:13px;height:13px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:1500px){.page-wrap{padding-left:46px;padding-right:46px}.map-wrap{height:410px}.metric-card{padding:21px}.main-grid{grid-template-columns:minmax(0,1.9fr) minmax(310px,.8fr)}}
+@media(max-width:1260px){.sidebar{width:220px}.main-content{margin-left:220px}.topbar{padding:0 25px}.page-wrap{padding:27px 25px 20px}.metric-card{padding:15px}.metric-foot{font-size:8px}.main-grid{grid-template-columns:minmax(0,1.45fr) minmax(270px,.85fr)}.map-toolbar{align-items:flex-start;flex-direction:column}.map-filters{justify-content:flex-start}.map-wrap{height:335px}.reports-heading{align-items:flex-start;flex-direction:column}.report-tools{width:100%}.search-box{flex:1;max-width:300px}}
+@media(max-width:980px){.sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:15px 0 40px #0d2c3a18}.sidebar.open{transform:translateX(0)}.main-content{margin-left:0}.mobile-menu{display:grid;margin-right:4px}.topbar{justify-content:flex-start;gap:14px;padding:0 22px}.breadcrumb{flex:1}.topbar-actions{gap:10px}.page-wrap{padding:26px 22px 20px}.page-heading{align-items:flex-start}.main-grid{grid-template-columns:1fr}.right-column{display:grid;grid-template-columns:1fr 1fr}.priority-panel,.selected-panel{min-width:0}.map-wrap{height:390px}.map-toolbar{flex-direction:row;align-items:center}.map-filters{justify-content:flex-end}}
+@media(max-width:700px){.topbar{height:60px;padding:0 15px;gap:9px}.breadcrumb span,.breadcrumb>svg{display:none}.breadcrumb strong{font-size:11px}.demo-pill{font-size:8px;padding:6px 8px}.topbar-actions{margin-left:auto;gap:8px}.topbar-actions .icon-button{display:none}.page-wrap{padding:22px 14px 17px}.page-heading{flex-direction:column;gap:17px;margin-bottom:18px}.page-heading h1{font-size:28px}.page-heading p{font-size:11px;max-width:450px}.heading-actions{width:100%}.heading-actions .button{flex:1;padding:10px 8px;font-size:10px}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:14px}.metric-card{padding:13px}.metric-label{font-size:10px}.metric-icon{width:30px;height:30px}.metric-value{font-size:25px;margin:10px 0}.metric-foot{white-space:normal;line-height:1.35;flex-wrap:wrap}.main-grid{gap:13px}.panel{border-radius:13px}.panel-heading{padding:16px 15px 13px}.panel-heading h2{font-size:16px}.map-toolbar{margin:0 10px 10px;padding:9px;align-items:flex-start;flex-direction:column}.map-filters{justify-content:flex-start;gap:5px}.filter-chip{font-size:8px;padding:5px 6px}.map-wrap{height:340px;margin:0 8px}.map-legend{left:8px;bottom:8px;padding:8px 9px}.legend-title{font-size:7px}.map-legend>div:not(.legend-title){font-size:8px}.map-scale-note{right:7px;bottom:8px;max-width:125px;font-size:7px;padding:6px}.map-footer{padding:12px 14px}.map-footer small{max-width:155px;line-height:1.4}.map-footer .text-button{font-size:9px}.right-column{grid-template-columns:1fr;gap:13px}.priority-panel{padding-left:15px;padding-right:15px}.compact-heading{padding:16px 0 8px}.reports-panel{margin-top:14px}.reports-heading{padding:16px 14px 13px}.report-tools{gap:6px}.search-box{width:auto;min-width:0;padding:9px 8px}.report-tools select{width:135px;min-width:0;padding-left:8px;font-size:9px}.reports-table th{padding:10px 11px}.reports-table th:first-child,.reports-table td:first-child{padding-left:14px}.reports-table td{padding:11px;font-size:9px}.table-footer{padding:11px 14px;align-items:flex-start;flex-direction:column;gap:7px}.page-footer{align-items:flex-start;flex-direction:column;gap:8px;font-size:8px}.modal-backdrop{padding:10px;align-items:flex-end}.modal-card{padding:20px 17px;border-radius:17px;max-height:calc(100vh - 20px)}.modal-header h2{font-size:19px}.form-grid{gap:13px}.form-field input,.form-field select,.form-field textarea{font-size:10px;padding:10px 9px}.modal-actions .button{padding:10px 12px}.toast{right:12px;bottom:12px;left:12px;justify-content:flex-start}}
+@media(max-width:390px){.heading-actions{gap:6px}.heading-actions .button{font-size:9px}.heading-actions .button svg{width:13px}.metric-foot{font-size:8px}.metric-label{max-width:90px}.map-location{font-size:9px}.map-filters{gap:4px}.filter-chip{gap:4px;font-size:7px}.report-tools select{width:115px}.search-box input{font-size:9px}.map-scale-note{max-width:103px}}
+
+/* Offline-safe observation map: keeps sample records selectable if all tile services fail. */
+.map-hidden{display:none!important}
+.offline-map{position:absolute;inset:0;z-index:3;overflow:hidden;background:#dceff2;color:#426d78;isolation:isolate}
+.offline-map[hidden]{display:none!important}
+.offline-map:not([hidden]){display:block}
+.offline-map-illustration{position:absolute;inset:0;width:100%;height:100%;color:#7caeb9}
+.offline-map-markers{position:absolute;inset:0;z-index:3;pointer-events:none}
+.offline-map-marker{position:absolute;pointer-events:auto;width:24px;height:24px;border:2px solid #fff;border-radius:50% 50% 50% 4px;transform:translate(-50%,-50%) rotate(-45deg);display:grid;place-items:center;box-shadow:0 3px 9px #163f4e55;transition:transform .16s,box-shadow .16s;z-index:2}
+.offline-map-marker span{width:7px;height:7px;border-radius:50%;background:#fff;display:block}
+.offline-map-marker.possible{background:#dda33d}
+.offline-map-marker.accumulation{background:#d96c63}
+.offline-map-marker.clear{background:#299d79}
+.offline-map-marker:hover,.offline-map-marker:focus-visible{transform:translate(-50%,-50%) rotate(-45deg) scale(1.18);z-index:5;box-shadow:0 0 0 5px #ffffff8c,0 5px 12px #163f4e66}
+.offline-map-marker.selected{box-shadow:0 0 0 5px #ffffffa8,0 3px 10px #163f4e66;z-index:4}
+.offline-map-note{position:absolute;left:12px;top:12px;z-index:5;display:flex;align-items:center;gap:9px;padding:9px 11px;border:1px solid #ffffffa8;border-radius:10px;background:#f8ffffdc;color:#335a65;box-shadow:0 4px 16px #2a63711c;backdrop-filter:blur(6px)}
+.offline-map-note>svg{width:18px;height:18px;color:#208d91;flex-shrink:0}
+.offline-map-note strong,.offline-map-note small{display:block}
+.offline-map-note strong{font-size:10px;line-height:1.4}
+.offline-map-note small{font-size:8px;line-height:1.5;color:#66868f;max-width:200px}
+html[data-theme="dark"]{color-scheme:dark;--ink:#e1edf1;--muted:#9bb0ba;--muted-2:#7f98a3;--line:#2b424f;--surface:#142832;--canvas:#0c1921;--teal-pale:#153b3e;--blue-pale:#1b3545;--amber-pale:#42351e;--coral-pale:#432a2a;--green-pale:#173b31;--shadow:0 12px 30px rgba(0,0,0,.16)}
+html[data-theme="dark"] body{background:var(--canvas);color:var(--ink)}
+html[data-theme="dark"] .topbar,html[data-theme="dark"] .panel,html[data-theme="dark"] .metric-card:not(.metric-card-dark),html[data-theme="dark"] .modal-card{background:var(--surface);border-color:var(--line);color:var(--ink)}
+html[data-theme="dark"] .topbar{background:#101f29;border-color:#263c48}
+html[data-theme="dark"] .page-heading h1,html[data-theme="dark"] .panel-heading h2,html[data-theme="dark"] .selected-panel h3,html[data-theme="dark"] .location-cell strong,html[data-theme="dark"] .priority-copy strong,html[data-theme="dark"] .modal-header h2{color:#e3edf1}
+html[data-theme="dark"] .page-heading p,html[data-theme="dark"] .panel-heading p,html[data-theme="dark"] .panel-description,html[data-theme="dark"] .selected-description,html[data-theme="dark"] .modal-header p,html[data-theme="dark"] .info-section p{color:#a0b3bc}
+html[data-theme="dark"] .breadcrumb strong{color:#d8e5ea}
+html[data-theme="dark"] .metric-value{color:#e4edf1}
+html[data-theme="dark"] .metric-card-dark{background:linear-gradient(140deg,#102b38,#173e49);border-color:#284956}
+html[data-theme="dark"] .icon-button{background:#182f3a;border-color:#2c4552;color:#bbd0d7}
+html[data-theme="dark"] .icon-button:hover{background:#203e49;border-color:#3b6570;color:#83e1da}
+html[data-theme="dark"] .button-secondary{background:#1a303b;border-color:#2c4551;color:#d5e3e8}
+html[data-theme="dark"] .button-secondary:hover{background:#213e49}
+html[data-theme="dark"] .button-soft{background:#173c3e;border-color:#285451;color:#8fe1d7}
+html[data-theme="dark"] .map-toolbar,html[data-theme="dark"] .reports-table thead{background:#10242e;border-color:#273e49}
+html[data-theme="dark"] .filter-chip,html[data-theme="dark"] .search-box,html[data-theme="dark"] .report-tools select{background:#172e39;border-color:#2b4652;color:#c5d7dd}
+html[data-theme="dark"] .search-box input{color:#dbe7eb}
+html[data-theme="dark"] .map-location{color:#bfd2d8}
+html[data-theme="dark"] .reports-table th{color:#8ea6b0;border-color:#263d48}
+html[data-theme="dark"] .reports-table td{color:#b6c8ce;border-color:#263d48}
+html[data-theme="dark"] .reports-table tbody tr:hover,html[data-theme="dark"] .reports-table tbody tr.row-selected{background:#18333d}
+html[data-theme="dark"] .location-cell small,html[data-theme="dark"] .priority-copy small,html[data-theme="dark"] .map-footer small,html[data-theme="dark"] .table-footer{color:#8da5af}
+html[data-theme="dark"] .map-footer,html[data-theme="dark"] .priority-item{border-color:#283f49}
+html[data-theme="dark"] .foot-icon,html[data-theme="dark"] .mini-location-icon,html[data-theme="dark"] .info-icon{background:#1b3c44;color:#79d7ce}
+html[data-theme="dark"] .selected-panel{background:linear-gradient(145deg,#142832 65%,#17343b);border-color:#2a4a50}
+html[data-theme="dark"] .priority-count{background:#422e2b;color:#ffab94}
+html[data-theme="dark"] .source-icon{background:#1c3545;color:#84bce3}
+html[data-theme="dark"] .source-icon.community{background:#302b47;color:#b6a7ef}
+html[data-theme="dark"] .form-field>span{color:#c7d8de}
+html[data-theme="dark"] .form-field input,html[data-theme="dark"] .form-field select,html[data-theme="dark"] .form-field textarea{background:#0f2029;border-color:#2c4652;color:#dce8ec}
+html[data-theme="dark"] .form-disclaimer{background:#3a321f;color:#e3c98d}
+html[data-theme="dark"] .info-section{border-color:#2a414c}
+html[data-theme="dark"] .info-section h3{color:#dce8ec}
+html[data-theme="dark"] .map-fallback{background:linear-gradient(145deg,#182f38,#10242e)}
+html[data-theme="dark"] .map-fallback strong{color:#e3edf1}
+html[data-theme="dark"] .map-fallback p{color:#a4bac3}
+html[data-theme="dark"] .offline-map{background:#102832;color:#a9c5cc}
+html[data-theme="dark"] .offline-map-illustration{filter:brightness(.72) saturate(.8)}
+html[data-theme="dark"] .offline-map-note{background:#10232de8;border-color:#3b5964;color:#e0edf0}
+html[data-theme="dark"] .offline-map-note small{color:#a4bdc4}
+html[data-theme="dark"] .map-legend{background:#10232de8;border-color:#35505b;color:#c8d9de}
+html[data-theme="dark"] .map-legend .legend-title{color:#91acb6}
+html[data-theme="dark"] .map-scale-note{background:#10232de8;border-color:#35505b;color:#bad0d7}
+html[data-theme="dark"] .demo-pill{background:#382e1d;border-color:#514126;color:#ecc87d}
+html[data-theme="dark"] .top-avatar{background:#204047;color:#a0e5dc}
+html[data-theme="dark"] .toast{background:#172f3b;border-color:#355461}
+html[data-theme="dark"] .empty-table{color:#91a9b2!important}
+html[data-theme="dark"] .modal-backdrop{background:rgba(0,0,0,.68)}
+.theme-toggle{display:grid;place-items:center}
+@media(max-width:700px){.topbar-actions .theme-toggle{display:grid}.offline-map-note{max-width:calc(100% - 24px)}.offline-map-note small{max-width:calc(100vw - 130px)}}
+.priority-item{background:transparent;border-left:0;border-right:0;border-bottom:0;text-align:left;width:100%;color:inherit}
+html[data-theme="dark"] .priority-item{background:transparent;color:inherit}
+
+.map-footer-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.map-footer-actions .text-button{white-space:nowrap}.map-footer-actions #tryLiveMapBtn{color:#208b8e}.map-footer-actions #tryLiveMapBtn:disabled{opacity:.55;cursor:wait}html[data-theme="dark"] .map-footer-actions #tryLiveMapBtn{color:#77ddd3}@media(max-width:700px){.map-footer-actions{gap:10px;justify-content:flex-start}.map-footer-actions .text-button{font-size:8px}}
+
+
+/* MAP THEME SYNCHRONIZATION
+   Live tiles use a native dark basemap when available. Any raster fallback is
+   dark-styled too, and the offline Boracay schematic has explicit dark colors. */
+.map-wrap #map { background: var(--canvas); transition: background-color .2s ease; }
+.map-wrap #map.map-dark-tile-fallback .leaflet-tile {
+  filter: invert(.88) hue-rotate(180deg) brightness(.86) contrast(.94) saturate(.72);
+}
+html[data-theme="dark"] .map-wrap #map { background: #0d202b; }
+html[data-theme="dark"] .map-wrap #map.map-using-dark-tiles .leaflet-tile { filter: none; }
+html[data-theme="dark"] .leaflet-popup-content-wrapper,
+html[data-theme="dark"] .leaflet-popup-tip { background: #142832; color: #dce8ec; }
+html[data-theme="dark"] .leaflet-popup-content strong { color: #e2eef1; }
+html[data-theme="dark"] .leaflet-control-zoom a {
+  background: #172d38 !important; color: #d9e8ec !important; border-color: #35505c !important;
+}
+html[data-theme="dark"] .leaflet-control-attribution {
+  background: #10232de0 !important; color: #b5cbd2 !important;
+}
+html[data-theme="dark"] .leaflet-control-attribution a { color: #7fd7d0 !important; }
+
+.offline-map {
+  --schematic-sea: #dceff2;
+  --schematic-ink: #426d78;
+  --schematic-land-a: #d9e5c4;
+  --schematic-land-b: #b7d0a2;
+  --schematic-coast: #8eaf84;
+  --schematic-ridge: #8aab83;
+  --schematic-beach: #f8f3dc;
+  background: var(--schematic-sea);
+  color: var(--schematic-ink);
+  transition: background-color .2s ease, color .2s ease;
+}
+.offline-map-illustration { filter: none !important; }
+.offline-map-illustration #islandFill stop:first-child { stop-color: var(--schematic-land-a); }
+.offline-map-illustration #islandFill stop:last-child { stop-color: var(--schematic-land-b); }
+.offline-map-illustration .island-shape { stroke: var(--schematic-coast); }
+.offline-map-illustration .island-ridge { stroke: var(--schematic-ridge); }
+.offline-map-illustration .island-beach { stroke: var(--schematic-beach); }
+html[data-theme="dark"] .offline-map {
+  --schematic-sea: #0b202b;
+  --schematic-ink: #a7c5ce;
+  --schematic-land-a: #29483d;
+  --schematic-land-b: #1c392f;
+  --schematic-coast: #5d8170;
+  --schematic-ridge: #476e60;
+  --schematic-beach: #d4d3ad;
+  background: var(--schematic-sea);
+  color: var(--schematic-ink);
+}
+html[data-theme="dark"] .offline-map-illustration { filter: none !important; }
+
+/* ---- Staff access gate (demo) ---- */
+html[data-auth="locked"] .app-shell{display:none}
+html[data-auth="ok"] .gate{display:none}
+.gate{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:24px;background:linear-gradient(160deg,#102b3a,#183c4e 60%,#1e9aa3)}
+.gate-card{width:100%;max-width:400px;background:var(--surface);color:var(--ink);border-radius:var(--radius);padding:32px;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.gate-brand{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-weight:700;letter-spacing:.18em}
+.gate-card h1{margin:14px 0 4px;font-size:22px}
+.gate-card p{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.5}
+.gate-card label{display:block;margin-bottom:12px;font-size:12px;font-weight:600}
+.gate-card input{width:100%;margin-top:6px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--canvas);color:var(--ink);font:inherit}
+.gate-card input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.gate-btn{width:100%;margin-top:6px;padding:12px;border:0;border-radius:10px;background:var(--teal-dark);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.gate-btn:hover{background:var(--teal)}
+.gate-err{min-height:18px;margin-top:10px;color:var(--coral);font-size:12px}
+.gate-hint{margin-top:14px;padding:10px 12px;border-radius:10px;background:var(--teal-pale);color:var(--teal-dark);font-size:12px}
+.gate-back{display:block;margin-top:14px;text-align:center;color:var(--muted);font-size:12px}
+.side-link{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:10px;color:inherit;font-size:13px;text-decoration:none;opacity:.85}
+.side-link:hover{opacity:1;background:rgba(255,255,255,.08)}
+.side-link-btn{width:100%;background:none;border:0;font:inherit;cursor:pointer;text-align:left}
+</style>
+<script>
+(() => {
+  'use strict';
+
+  const STORAGE_KEY = 'litus-demo-reports-v1';
+  const locations = {
+    station1: { name: 'White Beach · Station 1', short: 'White Beach · Station 1', lat: 11.9695, lng: 121.9187, area: 'West coast' },
+    station2: { name: 'White Beach · Station 2', short: 'White Beach · Station 2', lat: 11.9646, lng: 121.9222, area: 'West coast' },
+    station3: { name: 'White Beach · Station 3', short: 'White Beach · Station 3', lat: 11.9591, lng: 121.9250, area: 'West coast' },
+    bulabog: { name: 'Bulabog Beach', short: 'Bulabog Beach', lat: 11.9677, lng: 121.9302, area: 'East coast' },
+    diniwid: { name: 'Diniwid Beach', short: 'Diniwid Beach', lat: 11.9815, lng: 121.9164, area: 'Northwest coast' },
+    puka: { name: 'Puka Shell Beach', short: 'Puka Shell Beach', lat: 11.9921, lng: 121.9100, area: 'Northern coast' },
+    tambisaan: { name: 'Tambisaan Beach', short: 'Tambisaan Beach', lat: 11.9467, lng: 121.9380, area: 'Southeast coast' }
+  };
+
+  const seedReports = [
+    { id: 'demo-01', locationKey: 'station1', status: 'possible', source: 'Satellite sample', date: '2026-10-24', time: '09:20', level: 'Not assessed', notes: 'Illustrative satellite-screening record. Requires on-site verification.', lat: 11.9695, lng: 121.9187, demo: true },
+    { id: 'demo-02', locationKey: 'station2', status: 'accumulation', source: 'Community report', date: '2026-10-24', time: '08:45', level: 'Moderate', notes: 'Sample community-submitted shoreline report for the prototype.', lat: 11.9646, lng: 121.9222, demo: true },
+    { id: 'demo-03', locationKey: 'station3', status: 'clear', source: 'Satellite sample', date: '2026-10-23', time: '15:10', level: 'Not assessed', notes: 'Sample record: no clear detection in this illustrative observation.', lat: 11.9591, lng: 121.9250, demo: true },
+    { id: 'demo-04', locationKey: 'bulabog', status: 'possible', source: 'Satellite sample', date: '2026-10-23', time: '12:30', level: 'Not assessed', notes: 'Illustrative marker only; this is not a live satellite result.', lat: 11.9677, lng: 121.9302, demo: true },
+    { id: 'demo-05', locationKey: 'diniwid', status: 'clear', source: 'Community report', date: '2026-10-22', time: '10:05', level: 'Low', notes: 'Sample report included to demonstrate the review workflow.', lat: 11.9815, lng: 121.9164, demo: true },
+    { id: 'demo-06', locationKey: 'puka', status: 'possible', source: 'Satellite sample', date: '2026-10-22', time: '08:10', level: 'Not assessed', notes: 'Illustrative possible-presence marker. Ground checks are needed.', lat: 11.9921, lng: 121.9100, demo: true },
+    { id: 'demo-07', locationKey: 'tambisaan', status: 'accumulation', source: 'Community report', date: '2026-10-21', time: '16:30', level: 'High', notes: 'Example high-level report for illustrating inspection priorities.', lat: 11.9467, lng: 121.9380, demo: true },
+    { id: 'demo-08', locationKey: 'station2', status: 'clear', source: 'Community report', date: '2026-10-21', time: '11:15', level: 'Low', notes: 'Illustrative community observation; not independently verified.', lat: 11.9628, lng: 121.9230, demo: true }
+  ];
+
+  const statusInfo = {
+    possible: { label: 'Possible presence', className: 'possible', marker: 'marker-possible', color: '#e0a12f' },
+    accumulation: { label: 'Reported accumulation', className: 'accumulation', marker: 'marker-accumulation', color: '#d96c63' },
+    clear: { label: 'No clear detection', className: 'clear', marker: 'marker-clear', color: '#299d79' }
+  };
+  const viewInfo = {
+    overview: { title: 'Coastal overview', subtitle: 'See the latest sample observations and decide where a shoreline check may be most useful.' },
+    field: { title: 'Field reports', subtitle: 'Review community-submitted observations and the details that may need follow-up.' },
+    satellite: { title: 'Satellite observations', subtitle: 'Explore illustrative observation records; live satellite access is not connected in this prototype.' },
+    cleanup: { title: 'Cleanup priorities', subtitle: 'Prioritize reports marked as accumulation or possible presence for ground verification.' }
+  };
+
+  let reports = [...seedReports, ...loadSavedReports()];
+  let map = null;
+  let markerById = new Map();
+  let selectedId = reports[0]?.id || null;
+  let currentView = 'overview';
+  let toastTimeout = null;
+  let baseLayer = null;
+  let tileProviderIndex = 0;
+  let tileProviderLoadCount = 0;
+  let tileErrorCount = 0;
+  let offlineMapMode = true;
+  let liveMapLoading = false;
+  let liveMapInitStarted = false;
+
+  const $ = (selector, parent = document) => parent.querySelector(selector);
+  const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+
+  function loadSavedReports() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed.filter(isValidSavedReport) : [];
+    } catch (error) {
+      console.warn('LITUS: browser storage is unavailable; saved demo reports will not persist.', error);
+      return [];
+    }
+  }
+
+  function isValidSavedReport(item) {
+    return item && typeof item.id === 'string' && locations[item.locationKey] && statusInfo[item.status] && typeof item.date === 'string';
+  }
+
+  function saveLocalReports() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(reports.filter(report => !report.demo)));
+    } catch (error) {
+      showToast('This browser could not save the report. It may disappear after refresh.');
+      console.warn('LITUS: unable to save report to browser storage.', error);
+    }
+  }
+
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+  }
+
+  function formatDate(date, time, includeYear = false) {
+    const parsed = new Date(`${date}T${time || '00:00'}:00`);
+    if (Number.isNaN(parsed.getTime())) return `${date || 'Unknown date'} ${time || ''}`.trim();
+    const options = { day: '2-digit', month: 'short', ...(includeYear ? { year: 'numeric' } : {}) };
+    return `${new Intl.DateTimeFormat('en-GB', options).format(parsed)}${time ? ` · ${time}` : ''}`;
+  }
+
+  function formattedLocation(report) {
+    return locations[report.locationKey]?.name || 'Unknown location';
+  }
+
+  function reportTypeDescription(report) {
+    if (report.status === 'accumulation') return report.level && report.level !== 'Not assessed' ? `${report.level} accumulation · field check recommended` : 'Reported shoreline accumulation';
+    if (report.status === 'possible') return 'Potential presence · verify on site';
+    return 'No clear detection in sample record';
+  }
+
+  function priorityReports() {
+    return reports.filter(report => report.status === 'accumulation' || report.status === 'possible')
+      .sort((a, b) => priorityRank(a) - priorityRank(b) || `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`));
+  }
+
+  function priorityRank(report) {
+    if (report.status === 'accumulation' && report.level === 'High') return 0;
+    if (report.status === 'accumulation') return 1;
+    return 2;
+  }
+
+  function getVisibleReports() {
+    let filtered = [...reports];
+    if (currentView === 'field') filtered = filtered.filter(report => report.source === 'Community report');
+    if (currentView === 'satellite') filtered = filtered.filter(report => report.source === 'Satellite sample');
+    if (currentView === 'cleanup') filtered = filtered.filter(report => report.status === 'accumulation' || report.status === 'possible');
+    const status = $('#statusFilter')?.value || 'all';
+    if (status !== 'all') filtered = filtered.filter(report => report.status === status);
+    const search = ($('#reportSearch')?.value || '').trim().toLowerCase();
+    if (search) filtered = filtered.filter(report => `${formattedLocation(report)} ${report.source} ${statusInfo[report.status].label} ${report.notes || ''}`.toLowerCase().includes(search));
+    return filtered.sort((a, b) => `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`));
+  }
+
+  function getVisibleMapReports() {
+    const enabledStatuses = new Set($$('.map-filters input[type="checkbox"]:checked').map(input => input.value));
+    let filtered = reports.filter(report => enabledStatuses.has(report.status));
+    if (currentView === 'field') filtered = filtered.filter(report => report.source === 'Community report');
+    if (currentView === 'satellite') filtered = filtered.filter(report => report.source === 'Satellite sample');
+    if (currentView === 'cleanup') filtered = filtered.filter(report => report.status === 'accumulation' || report.status === 'possible');
+    const search = ($('#reportSearch')?.value || '').trim().toLowerCase();
+    if (search) filtered = filtered.filter(report => `${formattedLocation(report)} ${report.source} ${statusInfo[report.status].label} ${report.notes || ''}`.toLowerCase().includes(search));
+    return filtered;
+  }
+
+  function themeName() {
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  }
+
+  function setMapModeLabel(text) {
+    const label = $('#mapModeLabel');
+    if (label) label.textContent = text;
+  }
+
+  function activateOfflineMap() {
+    offlineMapMode = true;
+    map = null;
+    baseLayer = null;
+    const mapElement = $('#map');
+    const offlineMap = $('#offlineMap');
+    const fallback = $('#mapFallback');
+    mapElement?.classList.add('map-hidden');
+    if (offlineMap) {
+      offlineMap.hidden = false;
+      offlineMap.dataset.theme = themeName();
+    }
+    fallback?.classList.remove('show');
+    markerById.clear();
+    renderOfflineMarkers();
+    setMapModeLabel('Built-in schematic · works offline · no API/server needed');
+  }
+
+  function initMap() {
+    // The standalone edition deliberately uses its embedded SVG schematic only.
+    // No map SDK, API key, remote tile host, local web server, or backend is needed.
+    activateOfflineMap();
+  }
+
+  function offlineMarkerPosition(report) {
+    const minLng = 121.906;
+    const maxLng = 121.944;
+    const minLat = 11.943;
+    const maxLat = 11.999;
+    const x = 30 + ((report.lng - minLng) / (maxLng - minLng)) * 37;
+    const y = 8 + ((maxLat - report.lat) / (maxLat - minLat)) * 84;
+    return { x: Math.max(7, Math.min(91, x)), y: Math.max(7, Math.min(91, y)) };
+  }
+
+  function renderOfflineMarkers() {
+    const root = $('#offlineMapMarkers');
+    if (!root) return;
+    const visible = getVisibleMapReports();
+    root.innerHTML = visible.map(report => {
+      const pos = offlineMarkerPosition(report);
+      const className = statusInfo[report.status]?.className || 'possible';
+      const selected = report.id === selectedId ? ' selected' : '';
+      return `<button type="button" class="offline-map-marker ${className}${selected}" data-offline-marker="${escapeHTML(report.id)}" style="left:${pos.x}%;top:${pos.y}%" title="${escapeHTML(formattedLocation(report))}" aria-label="Select ${escapeHTML(formattedLocation(report))}: ${escapeHTML(statusInfo[report.status].label)}"><span></span></button>`;
+    }).join('');
+  }
+
+  function renderMarkers() {
+    markerById.clear();
+    renderOfflineMarkers();
+  }
+
+  function applyTheme(theme, notify = false) {
+    const normalized = theme === 'dark' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = normalized;
+    const button = $('#themeToggleBtn');
+    if (button) {
+      const nextTheme = normalized === 'dark' ? 'light' : 'dark';
+      button.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+      button.setAttribute('title', `Switch to ${nextTheme} theme`);
+      button.innerHTML = `<i data-lucide="${normalized === 'dark' ? 'sun' : 'moon'}"></i>`;
+    }
+    const themeColor = $('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = normalized === 'dark' ? '#0b1720' : '#102b3a';
+    try { localStorage.setItem('litus-theme-v1', normalized); } catch (_) { /* storage can be blocked in private/file contexts */ }
+    refreshIcons();
+    // The built-in SVG map shares the same theme tokens as the rest of the dashboard.
+    const offlineMap = $('#offlineMap');
+    if (offlineMap) offlineMap.dataset.theme = normalized;
+    renderOfflineMarkers();
+    if (notify) showToast(`${normalized === 'dark' ? 'Dark' : 'Light'} theme enabled.`);
+  }
+
+  function renderMetrics() {
+    $('#metricTotal').textContent = String(reports.length).padStart(2, '0');
+    $('#metricPossible').textContent = String(reports.filter(report => report.status === 'possible').length).padStart(2, '0');
+    $('#metricAccumulation').textContent = String(reports.filter(report => report.status === 'accumulation').length).padStart(2, '0');
+    const latest = [...reports].sort((a, b) => `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`))[0];
+    if (latest) {
+      const date = new Date(`${latest.date}T${latest.time || '00:00'}:00`);
+      if (!Number.isNaN(date.getTime())) $('#metricUpdated').innerHTML = `${String(date.getDate()).padStart(2, '0')} <span>${new Intl.DateTimeFormat('en', { month: 'short' }).format(date).toUpperCase()}</span>`;
+    }
+    $('#fieldNavCount').textContent = String(reports.filter(report => report.source === 'Community report').length);
+    $('#priorityCount').textContent = String(priorityReports().length).padStart(2, '0');
+  }
+
+  function renderPriorities() {
+    const root = $('#priorityList');
+    const list = priorityReports().slice(0, 3);
+    if (!list.length) {
+      root.innerHTML = '<div class="empty-table">No priority records in the current sample.</div>';
+      return;
+    }
+    root.innerHTML = list.map(report => {
+      const info = statusInfo[report.status];
+      return `<button class="priority-item" data-select-report="${escapeHTML(report.id)}"><span class="priority-icon" style="background:${report.status === 'accumulation' ? '#fff0ed' : '#fff5df'};color:${report.status === 'accumulation' ? '#d36d60' : '#bd8724'}"><i data-lucide="${report.status === 'accumulation' ? 'flag-triangle-right' : 'scan-search'}"></i></span><span class="priority-copy"><strong>${escapeHTML(formattedLocation(report))}</strong><small>${escapeHTML(info.label)} · ${escapeHTML(formatDate(report.date, report.time))}</small></span><i data-lucide="chevron-right"></i></button>`;
+    }).join('');
+    refreshIcons();
+  }
+
+  function renderTable() {
+    const list = getVisibleReports();
+    const tbody = $('#reportsTableBody');
+    if (!list.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty-table">No reports match this filter. Try another status or search.</td></tr>';
+    } else {
+      tbody.innerHTML = list.map(report => {
+        const status = statusInfo[report.status];
+        const community = report.source === 'Community report';
+        return `<tr data-row-id="${escapeHTML(report.id)}" tabindex="0" aria-label="Open ${escapeHTML(formattedLocation(report))}">
+          <td><div class="location-cell"><span class="mini-location-icon"><i data-lucide="map-pin"></i></span><span><strong>${escapeHTML(formattedLocation(report))}</strong><small>${escapeHTML(locations[report.locationKey]?.area || 'Boracay pilot area')}</small></span></div></td>
+          <td>${escapeHTML(reportTypeDescription(report))}</td>
+          <td><span class="source-label"><span class="source-icon ${community ? 'community' : ''}"><i data-lucide="${community ? 'users' : 'satellite'}"></i></span>${escapeHTML(report.source)}</span></td>
+          <td>${escapeHTML(formatDate(report.date, report.time, true))}</td>
+          <td><span class="status-cell ${status.className}"><span class="status-dot" style="background:${status.color}"></span>${escapeHTML(status.label)}</span></td>
+          <td><button class="row-action" data-open-report="${escapeHTML(report.id)}" aria-label="Open report details"><i data-lucide="arrow-up-right"></i></button></td>
+        </tr>`;
+      }).join('');
+    }
+    $('#tableCount').textContent = `Showing ${list.length} of ${reports.length} ${reports.length === 1 ? 'record' : 'records'}`;
+    refreshIcons();
+  }
+
+  function renderSelected() {
+    let report = reports.find(item => item.id === selectedId);
+    if (!report) report = reports[0];
+    if (!report) return;
+    selectedId = report.id;
+    const status = statusInfo[report.status];
+    $('#selectedName').textContent = formattedLocation(report);
+    $('#selectedDate').textContent = formatDate(report.date, report.time, true);
+    $('#selectedSource').textContent = report.source;
+    $('#selectedBadge').textContent = status.label;
+    $('#selectedBadge').className = `risk-badge risk-${status.className}`;
+    $('#selectedStatusDot').className = `status-dot dot-${report.status === 'possible' ? 'amber' : report.status === 'accumulation' ? 'coral' : 'green'}`;
+    $('#selectedConfidence').textContent = report.status === 'clear' ? 'Sample record' : report.status === 'accumulation' ? 'Ground check recommended' : 'Needs verification';
+    $('#selectedDescription').textContent = report.notes || reportTypeDescription(report);
+    renderMarkers();
+  }
+
+  function setView(view) {
+    currentView = view;
+    $$('.nav-link[data-view]').forEach(button => button.classList.toggle('active', button.dataset.view === view));
+    if (view === 'data') {
+      openModal('dataModal');
+      return;
+    }
+    const info = viewInfo[view] || viewInfo.overview;
+    $('#pageTitle').innerHTML = `${escapeHTML(info.title)}<span class="heading-period">.</span>`;
+    $('#pageSubtitle').textContent = info.subtitle;
+    $('#breadcrumbTitle').textContent = info.title;
+    $('#reportsHeading').textContent = view === 'field' ? 'Community field reports' : view === 'satellite' ? 'Satellite sample observations' : view === 'cleanup' ? 'Reports to verify' : 'Recent observations';
+    $('#reportsSubheading').textContent = view === 'field' ? 'Community-submitted demo records, ready for review.' : view === 'satellite' ? 'Illustrative records only; no live satellite service is connected.' : view === 'cleanup' ? 'Possible presence and reported accumulation records sorted for inspection.' : 'Sample records logged by satellite screening or community reports.';
+    renderTable();
+    renderMarkers();
+  }
+
+  function selectReport(id, openPopup = true) {
+    const report = reports.find(item => item.id === id);
+    if (!report) return;
+    selectedId = id;
+    renderSelected();
+    const marker = markerById.get(id);
+    if (map && marker && !offlineMapMode) {
+      map.panTo(marker.getLatLng(), { animate: true, duration: 0.35 });
+      if (openPopup) marker.openPopup();
+    }
+    if (offlineMapMode) renderOfflineMarkers();
+    $$('#reportsTableBody tr').forEach(row => row.classList.toggle('row-selected', row.dataset.rowId === id));
+  }
+
+  function showToast(message) {
+    const toast = $('#toast');
+    $('#toastText').textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  function openModal(id) {
+    const modal = $(`#${id}`);
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const focusTarget = $('input,select,button', modal);
+    setTimeout(() => focusTarget?.focus(), 60);
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    if (!$('.modal-backdrop.open')) document.body.style.overflow = '';
+  }
+
+  const INLINE_ICON_PATHS = {
+    waves: '<path d="M2 6c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1"/><path d="M2 12c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1"/><path d="M2 18c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1"/>',
+    'layout-dashboard': '<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/>',
+    'clipboard-list': '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1Z"/><path d="M8 10h8M8 14h8M8 18h5"/>',
+    satellite: '<path d="m13.5 6.5 4-4 4 4-4 4zM2 22l8-8"/><path d="m7 17-4-4M10 14l-4-4M14 10l-4-4"/><path d="M14 3 21 10M11 13l-3-3"/>',
+    'calendar-check': '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 15l2 2 5-5"/>',
+    'flask-conical': '<path d="M9 3h6M10 3v6L4 19a2 2 0 0 0 1.7 3h12.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7 16h10"/>',
+    database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    ellipsis: '<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',
+    menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    'chevron-right': '<path d="m9 18 6-6-6-6"/>',
+    'chevron-down': '<path d="m6 9 6 6 6-6"/>',
+    moon: '<path d="M20.8 14.1A8.7 8.7 0 0 1 9.9 3.2 8.9 8.9 0 1 0 20.8 14.1Z"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>',
+    'circle-help': '<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/>',
+    download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    'map-pinned': '<path d="m3 6 6-3 6 3 6-3v13l-6 3-6-3-6 3zM9 3v16M15 6v16"/><path d="M12 10a3 3 0 1 0 6 0c0-2-3-5-3-5s-3 3-3 5Z"/>',
+    'scan-search': '<path d="M3 7V4a1 1 0 0 1 1-1h3M17 3h3a1 1 0 0 1 1 1v3M21 17v3a1 1 0 0 1-1 1h-3M7 21H4a1 1 0 0 1-1-1v-3"/><circle cx="10.5" cy="10.5" r="3.5"/><path d="m13 13 3 3"/>',
+    'flag-triangle-right': '<path d="M5 22V4M5 4h12l-3 4 3 4H5"/>',
+    'clock-3': '<circle cx="12" cy="12" r="10"/><path d="M12 6v6h5"/>',
+    'locate-fixed': '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/>',
+    'map-pin': '<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+    map: '<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15"/>',
+    globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
+    'layers-3': '<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>',
+    info: '<circle cx="12" cy="12" r="10"/><path d="M12 11v5M12 7h.01"/>',
+    'arrow-up-right': '<path d="M7 17 17 7M8 7h9v9"/>',
+    'arrow-right': '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    x: '<path d="m18 6-12 12M6 6l12 12"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+    send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+    'shield-alert': '<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="M12 8v4M12 16h.01"/>',
+    'cloud-sun': '<path d="M12 2v2M4.93 4.93l1.42 1.42M2 12h2M20 12h2M17.65 6.35l1.42-1.42"/><circle cx="12" cy="12" r="4"/><path d="M5 19a4 4 0 0 1 3.8-5.3 5.5 5.5 0 0 1 10.5 1.3A3.5 3.5 0 1 1 19 22H8a3 3 0 0 1-3-3Z"/>',
+    'clipboard-check': '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M8 13l2 2 5-5"/>',
+    'lock-keyhole': '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/>',
+    check: '<path d="m5 12 4 4L19 6"/>',
+    'loader-circle': '<path d="M12 2a10 10 0 1 0 10 10"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+    'layout-dashboard': '<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/>'
+  };
+
+  function refreshIcons() {
+    // Use embedded SVG paths instead of a remote icon library. This also handles
+    // icons inserted later by the report table, selection panel, and theme switch.
+    $$('i[data-lucide]').forEach(element => {
+      const name = element.getAttribute('data-lucide') || '';
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('width', '24');
+      svg.setAttribute('height', '24');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '1.8');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      if (element.getAttribute('class')) svg.setAttribute('class', element.getAttribute('class'));
+      const ariaLabel = element.getAttribute('aria-label');
+      if (ariaLabel) svg.setAttribute('aria-label', ariaLabel);
+      svg.setAttribute('aria-hidden', ariaLabel ? 'false' : 'true');
+      svg.innerHTML = INLINE_ICON_PATHS[name] || '<circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/>';
+      element.replaceWith(svg);
+    });
+  }
+
+  function todayISO() {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  }
+
+  function setReportFormDefaults() {
+    $('#formDate').value = todayISO();
+    $('#formTime').value = `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`;
+  }
+
+  function handleReportSubmit(event) {
+    event.preventDefault();
+    const locationKey = $('#formLocation').value;
+    const location = locations[locationKey];
+    const status = $('#formStatus').value;
+    const date = $('#formDate').value;
+    const time = $('#formTime').value || '09:00';
+    if (!location || !statusInfo[status] || !date) {
+      showToast('Please complete the required report fields.');
+      return;
+    }
+    const report = {
+      id: `local-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      locationKey,
+      status,
+      source: 'Community report',
+      date,
+      time,
+      level: $('#formLevel').value,
+      notes: $('#formNotes').value.trim() || 'Community-submitted demo report. Needs independent verification.',
+      lat: location.lat,
+      lng: location.lng,
+      demo: false
+    };
+    reports.push(report);
+    saveLocalReports();
+    renderAll();
+    setView('overview');
+    selectedId = report.id;
+    renderSelected();
+    if (map) {
+      map.setView([report.lat, report.lng], Math.max(map.getZoom(), 14), { animate: true });
+      setTimeout(() => markerById.get(report.id)?.openPopup(), 350);
+    }
+    closeModal($('#reportModal'));
+    $('#reportForm').reset();
+    setReportFormDefaults();
+    showToast('Demo report saved in this browser.');
+  }
+
+  function renderAll() {
+    renderMetrics();
+    renderPriorities();
+    renderTable();
+    renderMarkers();
+  }
+
+  function exportCSV() {
+    const all = [...reports].sort((a, b) => `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`));
+    const columns = ['ID', 'Location', 'Status', 'Source', 'Date', 'Time', 'Accumulation level', 'Notes', 'Demo record'];
+    const rows = all.map(report => [report.id, formattedLocation(report), statusInfo[report.status].label, report.source, report.date, report.time || '', report.level || '', report.notes || '', report.demo ? 'Yes' : 'No']);
+    const csvCell = value => `"${String(value ?? '').replace(/"/g, '""')}"`;
+    const content = [columns, ...rows].map(row => row.map(csvCell).join(',')).join('\r\n');
+    const blob = new Blob(['\ufeff', content], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `litus-demo-reports-${todayISO()}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    showToast('CSV export prepared. It contains demo and locally saved records.');
+  }
+
+  function openSelectedDetails() {
+    if (!selectedId) return;
+    $('#reportsPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      const row = $(`[data-row-id="${CSS.escape(selectedId)}"]`);
+      if (row) {
+        row.classList.add('row-selected');
+        row.focus({ preventScroll: true });
+      } else {
+        showToast('This record is hidden by the current filters.');
+      }
+    }, 420);
+  }
+
+  function bindEvents() {
+    $$('[data-view]').forEach(button => button.addEventListener('click', event => {
+      event.preventDefault();
+      const view = button.dataset.view;
+      setView(view);
+      $('#sidebar').classList.remove('open');
+      if (view === 'cleanup') $('#reportsPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+
+    $('#addReportBtn').addEventListener('click', () => openModal('reportModal'));
+    $('#reportForm').addEventListener('submit', handleReportSubmit);
+    $('#exportBtn').addEventListener('click', exportCSV);
+    $('#helpBtn').addEventListener('click', () => openModal('dataModal'));
+    $('#themeToggleBtn').addEventListener('click', () => applyTheme(themeName() === 'dark' ? 'light' : 'dark', true));
+    $('#dataNotesBtn').addEventListener('click', () => openModal('dataModal'));
+    $('#tryLiveMapBtn').addEventListener('click', () => {
+      showToast('This standalone map is built in. No API key, backend, or internet connection is needed.');
+    });
+    $('#teamInfoBtn').addEventListener('click', () => showToast('LITUS prototype · CS Bootcamp 2026 · Team Bitcrushers'));
+    $('#mobileMenuBtn').addEventListener('click', () => $('#sidebar').classList.toggle('open'));
+    $('#resetMapBtn').addEventListener('click', () => {
+      if (map && !offlineMapMode) map.setView([11.970, 121.923], 13.3, { animate: true });
+      if (offlineMapMode) renderOfflineMarkers();
+      showToast(offlineMapMode ? 'Offline schematic is showing the Boracay pilot area.' : 'Map view reset to the Boracay pilot area.');
+    });
+    $('#viewPrioritiesBtn').addEventListener('click', () => {
+      setView('cleanup');
+      $('#reportsPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    $('#clearSelectionBtn').addEventListener('click', () => {
+      selectedId = null;
+      $('#selectedName').textContent = 'Select an observation';
+      $('#selectedDate').textContent = '—';
+      $('#selectedSource').textContent = '—';
+      $('#selectedBadge').textContent = 'No selection';
+      $('#selectedBadge').className = 'risk-badge risk-clear';
+      $('#selectedConfidence').textContent = 'Choose a map marker';
+      $('#selectedDescription').textContent = 'Select any marker or report row to see its details here.';
+      markerById.forEach(marker => marker.closePopup());
+      renderMarkers();
+    });
+    $('#selectedDetailsBtn').addEventListener('click', openSelectedDetails);
+
+    $$('.map-filters input').forEach(input => input.addEventListener('change', () => {
+      renderMarkers();
+      const checked = $$('.map-filters input:checked').length;
+      if (!checked) showToast('All map categories are hidden. Select a category to show markers.');
+    }));
+    $('#offlineMapMarkers').addEventListener('click', event => {
+      const marker = event.target.closest('[data-offline-marker]');
+      if (marker) selectReport(marker.dataset.offlineMarker, false);
+    });
+    $('#reportSearch').addEventListener('input', () => { renderTable(); renderMarkers(); });
+    $('#statusFilter').addEventListener('change', renderTable);
+
+    $('#reportsTableBody').addEventListener('click', event => {
+      const openButton = event.target.closest('[data-open-report]');
+      const row = event.target.closest('[data-row-id]');
+      const id = openButton?.dataset.openReport || row?.dataset.rowId;
+      if (id) selectReport(id, true);
+    });
+    $('#reportsTableBody').addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('tr[data-row-id]')) {
+        event.preventDefault();
+        selectReport(event.target.dataset.rowId, true);
+      }
+    });
+    $('#priorityList').addEventListener('click', event => {
+      const button = event.target.closest('[data-select-report]');
+      if (button) selectReport(button.dataset.selectReport, true);
+    });
+
+    $$('[data-close-modal]').forEach(button => button.addEventListener('click', () => closeModal(button.closest('.modal-backdrop'))));
+    $$('.modal-backdrop').forEach(modal => modal.addEventListener('click', event => { if (event.target === modal) closeModal(modal); }));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') $$('.modal-backdrop.open').forEach(closeModal);
+    });
+  }
+
+  function addDynamicStyle() {
+    const style = document.createElement('style');
+    style.textContent = '.reports-table tbody tr.row-selected{background:#eff9f8;box-shadow:inset 3px 0 #24999b}.reports-table tbody tr:focus-visible{outline:2px solid #61c5c0;outline-offset:-2px}';
+    document.head.appendChild(style);
+  }
+
+  function syncFromStorage(announce) {
+    const before = reports.filter(report => !report.demo).length;
+    reports = [...seedReports, ...loadSavedReports()];
+    if (!reports.some(report => report.id === selectedId)) selectedId = reports[0]?.id || null;
+    renderAll();
+    renderSelected();
+    refreshIcons();
+    const after = reports.filter(report => !report.demo).length;
+    if (announce && after > before) showToast(after - before === 1 ? 'New field report received.' : `${after - before} new field reports received.`);
+  }
+  window.addEventListener('storage', event => { if (event.key === STORAGE_KEY || event.key === null) syncFromStorage(true); });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) syncFromStorage(true); });
+
+  function init() {
+    applyTheme(themeName(), false);
+    bindEvents();
+    addDynamicStyle();
+    setReportFormDefaults();
+    renderMetrics();
+    renderPriorities();
+    renderTable();
+    renderSelected();
+    refreshIcons();
+    initMap();
+    // Icon library is optional; map markers and schematic still work without external icons.
+    setTimeout(refreshIcons, 1800);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+</script>
+</head>
+<body>
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <form class="gate-card" id="gateForm" autocomplete="off">
+      <div class="gate-brand">LITUS</div>
+      <h1 id="gateTitle">Staff access</h1>
+      <p>This dashboard is for authorised responders and reviewers. Sign in to view community reports.</p>
+      <label>Name<input id="gateName" type="text" placeholder="e.g. Maria Santos" required></label>
+      <label>Access code<input id="gateCode" type="password" placeholder="Access code" required></label>
+      <button class="gate-btn" type="submit">Sign in</button>
+      <div class="gate-err" id="gateErr" role="alert"></div>
+      <div class="gate-hint">Demo access code: <b>LITUS-2026</b></div>
+      <a class="gate-back" href="index.html">← Back to public site</a>
+    </form>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="LITUS overview" data-view="overview">
+        <span class="brand-mark"><i data-lucide="waves"></i></span>
+        <span class="brand-copy"><strong>LITUS</strong><small>COASTAL INTELLIGENCE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="overview"><i data-lucide="layout-dashboard"></i><span>Overview</span></button>
+        <button class="nav-link" data-view="field"><i data-lucide="clipboard-list"></i><span>Field reports</span><span class="nav-count" id="fieldNavCount">5</span></button>
+        <button class="nav-link" data-view="satellite"><i data-lucide="satellite"></i><span>Satellite observations</span></button>
+        <button class="nav-link" data-view="cleanup"><i data-lucide="calendar-check"></i><span>Cleanup priorities</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <span class="note-icon"><i data-lucide="flask-conical"></i></span>
+          <div><strong>Prototype workspace</strong><p>Observations shown here are illustrative demo records, not live detections.</p></div>
+        </div>
+        <button class="nav-link" data-view="data"><i data-lucide="database"></i><span>Data & limitations</span></button>
+        <a class="side-link" href="index.html"><i data-lucide="external-link"></i><span>Public report page</span></a>
+        <button class="side-link side-link-btn" id="signOutBtn" type="button"><i data-lucide="log-out"></i><span>Sign out</span></button>
+        <div class="user-profile">
+          <div class="avatar" id="userAvatar">BC</div>
+          <div class="user-copy"><strong id="userName">Bitcrushers</strong><small>Authorised staff</small></div>
+          <button class="icon-button subtle" id="teamInfoBtn" aria-label="Team info"><i data-lucide="ellipsis"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="mobileMenuBtn" aria-label="Open menu"><i data-lucide="menu"></i></button>
+        <div class="breadcrumb"><span>Workspace</span><i data-lucide="chevron-right"></i><strong id="breadcrumbTitle">Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="demo-pill"><span class="pulse-dot"></span> DEMO DATA</span>
+          <button class="icon-button theme-toggle" id="themeToggleBtn" aria-label="Switch to dark theme" title="Switch to dark theme"><i data-lucide="moon"></i></button>
+          <button class="icon-button" id="helpBtn" aria-label="About this prototype"><i data-lucide="circle-help"></i></button>
+          <div class="top-avatar" title="Bitcrushers project team">BC</div>
+        </div>
+      </header>
+
+      <div class="page-wrap">
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> BORACAY · AKLAN, PHILIPPINES</div>
+            <h1 id="pageTitle">Coastal overview<span class="heading-period">.</span></h1>
+            <p id="pageSubtitle">See the latest sample observations and decide where a shoreline check may be most useful.</p>
+          </div>
+          <div class="heading-actions">
+            <button class="button button-secondary" id="exportBtn"><i data-lucide="download"></i><span>Export reports</span></button>
+            <button class="button button-primary" id="addReportBtn"><i data-lucide="plus"></i><span>New field report</span></button>
+          </div>
+        </section>
+
+        <section class="metric-grid" aria-label="Summary metrics">
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-label">Total observations</span><span class="metric-icon icon-blue"><i data-lucide="map-pinned"></i></span></div>
+            <div class="metric-value" id="metricTotal">08</div>
+            <div class="metric-foot"><span class="mini-tag tag-neutral">Demo records</span><span>Across pilot area</span></div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-label">Possible presence</span><span class="metric-icon icon-amber"><i data-lucide="scan-search"></i></span></div>
+            <div class="metric-value" id="metricPossible">03</div>
+            <div class="metric-foot"><span class="status-dot dot-amber"></span><span>Verify with field checks</span></div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-label">Reported accumulation</span><span class="metric-icon icon-coral"><i data-lucide="flag-triangle-right"></i></span></div>
+            <div class="metric-value" id="metricAccumulation">02</div>
+            <div class="metric-foot"><span class="status-dot dot-coral"></span><span>Review priority locations</span></div>
+          </article>
+          <article class="metric-card metric-card-dark">
+            <div class="metric-top"><span class="metric-label">Latest sample update</span><span class="metric-icon icon-dark"><i data-lucide="clock-3"></i></span></div>
+            <div class="metric-value metric-date" id="metricUpdated">24 <span>OCT</span></div>
+            <div class="metric-foot"><span class="status-dot dot-teal"></span><span>Illustrative timestamp</span></div>
+          </article>
+        </section>
+
+        <section class="main-grid">
+          <article class="panel map-panel">
+            <div class="panel-heading map-panel-heading">
+              <div><div class="panel-kicker"><span class="live-indicator"></span> PILOT AREA</div><h2>Observation map</h2><p>Explore sample locations along Boracay's coast.</p></div>
+              <button class="icon-button" id="resetMapBtn" aria-label="Reset map view" title="Reset map view"><i data-lucide="locate-fixed"></i></button>
+            </div>
+            <div class="map-toolbar">
+              <div class="map-location"><i data-lucide="map-pin"></i><span>White Beach & nearby coast</span><i data-lucide="chevron-down"></i></div>
+              <div class="map-filters" aria-label="Map filters">
+                <label class="filter-chip"><input type="checkbox" value="possible" checked><span class="filter-dot dot-amber"></span>Possible</label>
+                <label class="filter-chip"><input type="checkbox" value="accumulation" checked><span class="filter-dot dot-coral"></span>Accumulation</label>
+                <label class="filter-chip"><input type="checkbox" value="clear" checked><span class="filter-dot dot-green"></span>No clear detection</label>
+              </div>
+            </div>
+            <div class="map-wrap">
+              <div id="map" role="application" aria-label="Interactive map of sample Sargassum observations around Boracay"></div>
+              <div id="offlineMap" class="offline-map" aria-label="Schematic Boracay observation map">
+                <svg class="offline-map-illustration" viewBox="0 0 1000 640" role="img" aria-label="Stylized schematic of Boracay island surrounded by sea">
+                  <defs>
+                    <pattern id="seaGrid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M 54 0 L 0 0 0 54" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="1"/></pattern>
+                    <linearGradient id="islandFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9e5c4"/><stop offset="1" stop-color="#b7d0a2"/></linearGradient>
+                  </defs>
+                  <rect width="1000" height="640" fill="currentColor" opacity=".04"/>
+                  <rect width="1000" height="640" fill="url(#seaGrid)"/>
+                  <g fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="2"><path d="M-30 140 C150 70 190 205 365 142 S670 60 1030 130"/><path d="M-10 490 C155 420 265 540 445 468 S780 390 1030 480"/><path d="M-10 330 C150 265 260 350 440 300 S760 245 1020 325"/></g>
+                  <path class="island-shape" d="M414 23 C460 38 481 71 477 104 C476 135 504 160 512 193 C519 228 507 255 530 286 C555 319 550 349 568 376 C590 411 581 439 603 468 C620 495 613 528 595 552 L530 615 C514 582 484 564 471 532 C454 498 443 473 423 444 C407 420 402 385 389 355 C373 322 367 294 368 264 C369 231 349 201 362 170 C371 145 363 119 376 89 C387 63 391 39 414 23 Z" fill="url(#islandFill)" stroke="#8eaf84" stroke-width="5"/>
+                  <path class="island-ridge" d="M402 55 C417 87 399 121 400 154 S417 214 409 244 S429 302 433 330 S458 385 461 414 S485 465 505 505" fill="none" stroke="#8aab83" stroke-width="13" stroke-linecap="round" opacity=".75"/>
+                  <path class="island-beach" d="M391 68 C387 112 378 137 388 165 S398 222 396 251 S417 304 420 333 S447 389 449 417 S474 470 488 494" fill="none" stroke="#f8f3dc" stroke-width="12" stroke-linecap="round"/>
+                  <g fill="currentColor" font-family="Arial, sans-serif" font-weight="700" letter-spacing="2"><text x="65" y="90" font-size="18" opacity=".64">SULU SEA</text><text x="700" y="520" font-size="18" opacity=".64">SULU SEA</text></g>
+                  <g fill="currentColor" font-family="Arial, sans-serif" font-size="16" font-weight="700" opacity=".78"><text x="220" y="300">WHITE BEACH</text><text x="605" y="340">BULABOG BEACH</text><text x="424" y="320" font-size="20" transform="rotate(78 424 320)">BORACAY ISLAND</text></g>
+                  <g transform="translate(930 40)" stroke="currentColor" fill="none" stroke-width="3" opacity=".68"><path d="M0 22 L0 0 M-8 10 L0 0 L8 10"/><path d="M-12 28 L12 28"/></g><text x="930" y="84" text-anchor="middle" fill="currentColor" font-size="13" font-family="Arial, sans-serif" opacity=".68">N</text>
+                </svg>
+                <div id="offlineMapMarkers" class="offline-map-markers"></div>
+                <div class="offline-map-note"><i data-lucide="map"></i><span><strong>Schematic Boracay map</strong><small>Interactive sample markers · available even without internet</small></span></div>
+              </div>
+              <div class="map-fallback" id="mapFallback"><div class="fallback-icon"><i data-lucide="map"></i></div><strong>Built-in offline map</strong><p>The interactive schematic is embedded in this file. No API key, internet, or backend is required.</p></div>
+              <div class="map-legend"><div class="legend-title">OBSERVATION STATUS</div><div><span class="legend-dot legend-green"></span>No clear detection</div><div><span class="legend-dot legend-amber"></span>Possible presence</div><div><span class="legend-dot legend-coral"></span>Reported accumulation</div></div>
+              <div class="map-scale-note"><i data-lucide="info"></i> Demo markers · not verified detections</div>
+            </div>
+            <div class="map-footer"><div><span class="foot-icon"><i data-lucide="layers-3"></i></span><span><strong>Observation layer</strong><small id="mapModeLabel">Schematic map · always available</small></span></div><div class="map-footer-actions"><button class="text-button" id="tryLiveMapBtn"><i data-lucide="map"></i> Offline map · no API needed</button><button class="text-button" id="dataNotesBtn">View data notes <i data-lucide="arrow-up-right"></i></button></div></div>
+          </article>
+
+          <aside class="right-column">
+            <article class="panel priority-panel">
+              <div class="panel-heading compact-heading"><div><div class="panel-kicker">FIELD RESPONSE</div><h2>Inspection priorities</h2></div><span class="priority-count" id="priorityCount">02</span></div>
+              <p class="panel-description">Locations worth checking first based on the sample reports.</p>
+              <div class="priority-list" id="priorityList"></div>
+              <button class="button button-soft button-full" id="viewPrioritiesBtn">View all priorities <i data-lucide="arrow-right"></i></button>
+            </article>
+
+            <article class="panel selected-panel" id="selectedPanel">
+              <div class="selected-topline"><span class="selected-label"><span class="status-dot dot-amber" id="selectedStatusDot"></span> SELECTED OBSERVATION</span><button class="icon-button tiny" id="clearSelectionBtn" aria-label="Clear selection"><i data-lucide="x"></i></button></div>
+              <h3 id="selectedName">White Beach · Station 1</h3>
+              <div class="selected-meta"><span><i data-lucide="clock-3"></i><span id="selectedDate">24 Oct 2026 · 09:20</span></span><span><i data-lucide="map-pin"></i><span id="selectedSource">Satellite sample</span></span></div>
+              <div class="selected-status-row"><span class="risk-badge risk-possible" id="selectedBadge">Possible presence</span><span class="confidence-note" id="selectedConfidence">Needs verification</span></div>
+              <p class="selected-description" id="selectedDescription">Illustrative observation marker for demonstration only. Confirm conditions on site before making operational decisions.</p>
+              <button class="text-button selected-detail-button" id="selectedDetailsBtn">Open report details <i data-lucide="arrow-up-right"></i></button>
+            </article>
+          </aside>
+        </section>
+
+        <section class="panel reports-panel" id="reportsPanel">
+          <div class="panel-heading reports-heading">
+            <div><div class="panel-kicker">FIELD INTELLIGENCE</div><h2 id="reportsHeading">Recent observations</h2><p id="reportsSubheading">Sample records logged by satellite screening or community reports.</p></div>
+            <div class="report-tools"><label class="search-box"><i data-lucide="search"></i><input id="reportSearch" type="search" placeholder="Search locations..." aria-label="Search reports"></label><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="possible">Possible presence</option><option value="accumulation">Reported accumulation</option><option value="clear">No clear detection</option></select></div>
+          </div>
+          <div class="table-scroll"><table class="reports-table"><thead><tr><th>LOCATION</th><th>OBSERVATION</th><th>SOURCE</th><th>DATE & TIME</th><th>STATUS</th><th><span class="sr-only">Open</span></th></tr></thead><tbody id="reportsTableBody"></tbody></table></div>
+          <div class="table-footer"><span id="tableCount">Showing 8 demo records</span><span><span class="status-dot dot-teal"></span> Demo mode · Reports stay in this browser</span></div>
+        </section>
+
+        <footer class="page-footer"><span><span class="footer-wave"><i data-lucide="waves"></i></span> LITUS <span class="footer-separator">/</span> CS BOOTCAMP 2026</span><span>Decision support, not a substitute for field verification.</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="reportModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><div><div class="panel-kicker">COMMUNITY INPUT</div><h2 id="modalTitle">Submit a field report</h2><p>Record a shoreline observation for the demo dashboard.</p></div><button class="icon-button" data-close-modal aria-label="Close"><i data-lucide="x"></i></button></div>
+      <form id="reportForm">
+        <div class="form-grid">
+          <label class="form-field span-2"><span>Observation location <b>*</b></span><select id="formLocation" required><option value="station1">White Beach · Station 1</option><option value="station2">White Beach · Station 2</option><option value="station3">White Beach · Station 3</option><option value="bulabog">Bulabog Beach</option><option value="diniwid">Diniwid Beach</option><option value="puka">Puka Shell Beach</option><option value="tambisaan">Tambisaan Beach</option></select></label>
+          <label class="form-field"><span>Observation status <b>*</b></span><select id="formStatus" required><option value="possible">Possible presence</option><option value="accumulation">Reported accumulation</option><option value="clear">No clear detection</option></select></label>
+          <label class="form-field"><span>Accumulation level</span><select id="formLevel"><option value="Not assessed">Not assessed</option><option value="Low">Low</option><option value="Moderate">Moderate</option><option value="High">High</option></select></label>
+          <label class="form-field"><span>Date observed <b>*</b></span><input type="date" id="formDate" required /></label>
+          <label class="form-field"><span>Time observed</span><input type="time" id="formTime" value="09:00" /></label>
+          <label class="form-field span-2"><span>Notes</span><textarea id="formNotes" rows="3" placeholder="Describe what you observed..." maxlength="400"></textarea><small>Do not submit personal or sensitive information.</small></label>
+        </div>
+        <div class="form-disclaimer"><i data-lucide="shield-alert"></i><span>This prototype stores new reports in this browser only. Reports are not sent to local authorities and do not verify actual Sargassum presence.</span></div>
+        <div class="modal-actions"><button type="button" class="button button-secondary" data-close-modal>Cancel</button><button type="submit" class="button button-primary"><i data-lucide="send"></i> Save demo report</button></div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="dataModal" aria-hidden="true">
+    <section class="modal-card info-modal" role="dialog" aria-modal="true" aria-labelledby="dataModalTitle">
+      <div class="modal-header"><div><div class="panel-kicker">TRANSPARENCY</div><h2 id="dataModalTitle">Data sources & limitations</h2><p>What this prototype does—and does not—claim.</p></div><button class="icon-button" data-close-modal aria-label="Close"><i data-lucide="x"></i></button></div>
+      <div class="info-section"><span class="info-icon"><i data-lucide="satellite"></i></span><div><h3>Satellite imagery</h3><p>The proposal identifies Copernicus Sentinel-2 as a potential data source. This front-end prototype does not connect to Sentinel-2 or perform image classification; its map markers are sample records.</p></div></div>
+      <div class="info-section"><span class="info-icon"><i data-lucide="cloud-sun"></i></span><div><h3>Oceanographic conditions</h3><p>Wind and current data are not live-integrated. A future version would need to verify dataset coverage, update frequency, terms, and suitability before estimating drift or accumulation risk.</p></div></div>
+      <div class="info-section"><span class="info-icon"><i data-lucide="clipboard-check"></i></span><div><h3>Ground verification</h3><p>Cloud cover, sun glint, coastal water conditions, and resolution can affect observations. All potential detections should be treated as indicators for inspection, not confirmed shoreline events.</p></div></div>
+      <div class="info-section"><span class="info-icon"><i data-lucide="lock-keyhole"></i></span><div><h3>Prototype privacy</h3><p>Reports created here are stored locally in your browser. There is no server, authentication, shared database, or alert delivery in this version.</p></div></div>
+      <div class="modal-actions"><button class="button button-primary" data-close-modal>Got it</button></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon"><i data-lucide="check"></i></span><span id="toastText">Done</span></div>
+  <script>
+    (() => {
+      const SESSION = 'litus-staff-session', CODE = 'LITUS-2026';
+      const root = document.documentElement;
+      const nameEl = document.getElementById('userName'), avatar = document.getElementById('userAvatar');
+      function applyUser(name){
+        if (!name) return;
+        nameEl.textContent = name;
+        avatar.textContent = name.split(/\s+/).map(w => w[0]).join('').slice(0,2).toUpperCase();
+      }
+      try { applyUser(sessionStorage.getItem(SESSION) && JSON.parse(sessionStorage.getItem(SESSION)).name); } catch (_) {}
+      document.getElementById('gateForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('gateName').value.trim();
+        const code = document.getElementById('gateCode').value.trim();
+        const err = document.getElementById('gateErr');
+        if (code.toUpperCase() !== CODE) { err.textContent = 'Incorrect access code.'; return; }
+        try { sessionStorage.setItem(SESSION, JSON.stringify({ name })); } catch (_) {}
+        applyUser(name);
+        err.textContent = '';
+        root.dataset.auth = 'ok';
+        window.dispatchEvent(new Event('resize'));
+      });
+      document.getElementById('signOutBtn').addEventListener('click', () => {
+        try { sessionStorage.removeItem(SESSION); } catch (_) {}
+        document.getElementById('gateCode').value = '';
+        root.dataset.auth = 'locked';
+      });
+    })();
+  </script>
+</body>
+</html>
